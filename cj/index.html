@@ -1,0 +1,62 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>穿越火线幻神终极套餐</title>
+
+<link rel="stylesheet" href="css/lottery.css" />
+
+<script src="js/vue.min.js"></script>
+
+</head>
+<body>
+
+<div class="lottery-box" id="app">
+	<div class="head"></div>
+  <div class="box_box">
+    <div class="lottery">
+      <div class="lottery-item">
+        <div class="lottery-start">
+          <div class="box gray" v-if="isStart===0">
+            <p>活动未开始</p>
+          </div>
+          <div class="box" @click="startLottery" v-if="isStart===1">
+          </div>
+          <div class="box gray" v-if="isStart===2">
+            <p>活动已过期</p>
+          </div>
+        </div>
+        <ul>
+          <li v-for="(item,i) in list" :class="i==index?'on':''">
+            <div class="box">
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>  
+    <!-- 中奖弹窗 -->
+    <div class="mask" v-if="showToast"></div>
+    <div class="lottery-alert" v-if="showToast">
+      <div class="amsdialog_header">
+        <span>系统消息</span>
+      </div>
+      <div class="amsdialog_content">
+        <div class="amsdialog_cmain">
+          获得{{list[index].title}}
+        </div>
+        <div class="btnsave" @click="showToast=false">
+          <a href="#"> 确定</a>
+        </div> 
+      </div>
+    </div>  
+  </div>
+  <p>免责声明：娱乐为目的，不利用盈利，欺诈等目的，联系方式（qq）：676774756</p>
+</div>
+
+<script src="js/lottery.js"></script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+</div>
+</body>
+</html>
